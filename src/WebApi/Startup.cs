@@ -62,6 +62,8 @@ namespace WebApi
             {
                 endpoints.MapControllers();
             });
+
+            EnsureDatabase.Ensure();
         }
     }
 }

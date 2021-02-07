@@ -23,6 +23,7 @@ namespace BasketAppApi.Application.Baskets.Commands
             }
             public async Task<Unit> Handle(CreateBasketCommand request, CancellationToken cancellationToken)
             {
+                //Burada her userın bir sepeti varmış mantığı ile dummy olarak userın sepeti oluşturuluyor.
                 _context.Baskets.Add(new Basket { UserId = System.Guid.NewGuid().ToString() });
                 await _context.SaveChangesAsync(cancellationToken);
                 return Unit.Value;

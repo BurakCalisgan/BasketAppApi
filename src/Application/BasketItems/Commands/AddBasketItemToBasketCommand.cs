@@ -61,7 +61,7 @@ namespace BasketAppApi.Application.BasketItems.Commands
                             userBasket.BasketItems.Add(new BasketItem()
                             {
                                 ProductId = request.ProductId,
-                                Quantity = request.ProductId,
+                                Quantity = request.Quantity,
                                 BasketId = userBasket.Id
                             });
                         }
