@@ -7,15 +7,16 @@ using BasketAppApi.Application.Products.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using BasketAppApi.Application.Common.Interfaces;
-namespace ToDoApi.Application.Notes.Queries
+
+namespace BasketAppApi.Application.Products.Queries
 {
     public class GetProductsQuery : IRequest<List<ProductDto>>
     {
-        public class GetNotesQueryHandler : IRequestHandler<GetProductsQuery, List<ProductDto>>
+        public class GetProductsQueryHandler : IRequestHandler<GetProductsQuery, List<ProductDto>>
         {
             private readonly IBasketAppDbContext _context;
             private readonly IMapper _mapper;
-            public GetNotesQueryHandler(IBasketAppDbContext context, IMapper mapper)
+            public GetProductsQueryHandler(IBasketAppDbContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;

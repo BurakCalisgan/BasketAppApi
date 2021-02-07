@@ -5,7 +5,6 @@ using BasketAppApi.Application.Common.Interfaces;
 using BasketAppApi.Application.Products.Models;
 using BasketAppApi.Domain.Entities;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace BasketAppApi.Application.Products.Commands
 {
@@ -25,8 +24,8 @@ namespace BasketAppApi.Application.Products.Commands
             }
             public async Task<int> Handle(CreateProductCommand request, CancellationToken cancellationToken)
             {
-                var note = _mapper.Map<Product>(request.Product);
-                _context.Products.Add(note);
+                var product = _mapper.Map<Product>(request.Product);
+                _context.Products.Add(product);
                 var response = await _context.SaveChangesAsync(cancellationToken);
 
                 return response;

@@ -30,6 +30,9 @@ namespace WebApi
         {
 
             services.AddControllers();
+             services.AddControllers().AddNewtonsoftJson(options =>
+                                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+                                
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi", Version = "v1" });

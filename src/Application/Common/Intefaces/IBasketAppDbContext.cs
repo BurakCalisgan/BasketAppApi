@@ -9,7 +9,7 @@ namespace BasketAppApi.Application.Common.Interfaces
     {
         DbSet<Product> Products { get; set; }
         DbSet<Basket> Baskets { get; set; }
-        DbSet<BasketProduct> BasketProducts { get; set; }
+        DbSet<BasketItem> BasketItems { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

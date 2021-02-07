@@ -46,7 +46,7 @@ namespace Persistence.Migrations
                     b.ToTable("Baskets");
                 });
 
-            modelBuilder.Entity("BasketAppApi.Domain.Entities.BasketProduct", b =>
+            modelBuilder.Entity("BasketAppApi.Domain.Entities.BasketItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -65,6 +65,9 @@ namespace Persistence.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -77,7 +80,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("BasketProducts");
+                    b.ToTable("BasketItems");
                 });
 
             modelBuilder.Entity("BasketAppApi.Domain.Entities.Product", b =>
@@ -96,6 +99,9 @@ namespace Persistence.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -110,10 +116,10 @@ namespace Persistence.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("BasketAppApi.Domain.Entities.BasketProduct", b =>
+            modelBuilder.Entity("BasketAppApi.Domain.Entities.BasketItem", b =>
                 {
                     b.HasOne("BasketAppApi.Domain.Entities.Basket", "Basket")
-                        .WithMany()
+                        .WithMany("BasketItems")
                         .HasForeignKey("BasketId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -127,6 +133,11 @@ namespace Persistence.Migrations
                     b.Navigation("Basket");
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("BasketAppApi.Domain.Entities.Basket", b =>
+                {
+                    b.Navigation("BasketItems");
                 });
 #pragma warning restore 612, 618
         }

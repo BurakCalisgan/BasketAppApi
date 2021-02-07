@@ -3,7 +3,7 @@ using BasketAppApi.Application.Products.Commands;
 using BasketAppApi.Application.Products.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using ToDoApi.Application.Notes.Queries;
+using BasketAppApi.Application.Products.Queries;
 
 namespace WebApi.Controllers
 {

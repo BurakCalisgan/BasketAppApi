@@ -12,7 +12,7 @@ namespace BasketAppApi.Persistence
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<Basket> Baskets { get; set; }
-        public DbSet<BasketProduct> BasketProducts { get; set; }
+        public DbSet<BasketItem> BasketItems { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
